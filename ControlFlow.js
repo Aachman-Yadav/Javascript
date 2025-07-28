@@ -127,3 +127,28 @@ if( arr.length === 0 ){
 if(Object.keys(emptyObj).length === 0 ){
     console.log("Object is empty");
 }
+
+
+
+
+//* +++++++++++++++++++++++++++++++++++++++++++++++++++
+//* Nullish Coalescing Operator (??): null underfined 
+
+let val1;
+val1 = 5 ?? 10;
+console.log(val1); //* abhi toh val1 mai 5 value hai....
+//* Agr by chance null value aa jaaye database se ya undefined aa jaaye.. toh ?? k baad waale value assign ho jaati hai 
+
+val1 = null ?? 10;
+console.log(val1); //* ab val1 k andr 10 aa gaye..
+val1 = undefined ?? 15; //* ab iske andr 15 aa jayegi value...
+console.log(val1);
+
+val1 = null ?? 10 ?? 10 //* aise multiple null values handle kar sakte hai..
+
+//* Terniary Operator... Short form of if-else
+    //* condition ? true : false
+const iceTeaPrice = 100;
+iceTeaPrice <= 80 ? console.log("less than 80") : console.log("more than 80");
+
+
