@@ -20,4 +20,4 @@ means that JavaScript executes code **one line at a time**.
 
 ---
 
-![Theory Image](image-1.png)
+![Theory Image](image.png)
