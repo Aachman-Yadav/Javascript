@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; ">
+        0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+    
+</body>
+<script>
+    //<!--* AJAX request when fetch was not there
+    const xhr = new XMLHttpRequest() //<!--* Class hai toh object banana padega iska...
+    //<!--* Jo upar likha hai uski open request point 1, wahi send karta hai ye..
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    //<!--* Lekin ye open karne se request jaati nahi hai call karna padta hai isko..
+        // console.log(xhr.readyState); //<!--* Lekin ye toh ek hi change bateyega toh xhr k paas khud ka function hai usko track karne k liye bhi 
+            
+            //<!--* On ready state change khud ek function leta hai uske upar jo bhi action perform karna ho woh karta hai
+                
+    xhr.open('GET', requestUrl) 
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+
+        if(xhr.readyState === 4 ){
+            const data = JSON.parse(this.responseText);
+            console.log(typeof(data)); //<!--* Idhr return kara usne string mtlb data string mai aaya hai usko convert karna padega object tab jaake access kar paayenge
+            
+            console.log(data.followers);
+            
+        }
+        
+    }
+    xhr.send() //<!--* open call nahi hota na directly toh isliye xhr.send() use karenge..
+    
+
+</script>
+</html>
