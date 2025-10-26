@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+
+
+</body>
+<script>
+    // setTimeout() // <!--* Ye ek method hai jo api ko bhi call karta hai....
+
+    //<!--* TOh set time out karta kya hai.... toh ye handler and timeout leta hai 
+    //<!--* and then mtlb function then uska time out pass karenge uske andr...
+    //<!--* Example below...
+    const sayHitesh = ()=>{
+        console.log("Hitesh");
+    }
+    setTimeout(sayHitesh,2000)//<!--* isme time ms mai hota hai toh 2000 ms means 2 sec.. mtlb 2 sec k baad print kar dega..
+
+    const changeText = ()=>{
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+    const changeMe = setTimeout(changeText, 2000); //<!--*Vairable ke andr store karne bhi setTimeout chalta rehta hai woh rukta nahi hai...
+
+    //<!--* Clear timeout bhi hota hai aise jaise hi set timeout hota hai toh ye karta ye hai ki setTimeout k complete hone se phele stop kar deta hai
+
+    // clearTimeout(changeMe); //<!--* Isse setTimeout ko rok hi dega woh phir setTimeout execute nahi hoga..
+
+    document.querySelector("#stop").addEventListener('click', ()=>{
+        clearTimeout(changeMe);
+        console.log("STOPPED");
+        
+    })
+</script>
+</html>
